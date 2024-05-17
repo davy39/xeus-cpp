@@ -267,6 +267,13 @@ jobs:
           python -m pip install jupyterlite-xeus
           jupyter lite build --XeusAddon.prefix=${{ env.PREFIX }}
 
+
+      - name: Upload _output artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: _output
+          path: _output
+    
       - name: Setup tmate session
         if: ${{ failure() && runner.debug }}
         uses: mxschmitt/action-tmate@v3
